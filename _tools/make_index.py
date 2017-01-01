@@ -68,7 +68,7 @@ INDEX_TEMPLATE = r"""
 </html>
 """
 
-EXCLUDED = ['index.html']
+EXCLUDED = ['index.html', 'make_index.py']
 
 import os
 import argparse
@@ -102,4 +102,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
