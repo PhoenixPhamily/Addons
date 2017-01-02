@@ -19,10 +19,10 @@ INDEX_TEMPLATE = r"""
 <pre>
 <a href="../">../</a>
 % for name in dirnames:
-<a href="${name}/">${name}/</a>${' ' * (50 - len(name))}${time} ${' ' * (34 - len(time))} -
+<a href="${name}/">${name}/</a>${' ' * (55 - len(name))}${time} ${' ' * (34 - len(time))} -
 % endfor
 % for name in filenames:
-<a href="${name}">${name}</a>${' ' * (50 - len(name))}${time} ${' ' * (34 - len(time))} -
+<a href="${name}">${name}</a>${' ' * (55 - len(name))}${time} ${' ' * (34 - len(time))} -
 % endfor
 </pre>
 <hr>
