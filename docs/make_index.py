@@ -11,16 +11,15 @@ INDEX_TEMPLATE = r"""
 
 <html>
 <head>
-<title>${header}</title>
-<meta name="description" content="${header}"/>
+<title>Index of ${header}</title>
 </head>
-<body>
+<body bgcolor="white">
 <h1>Index of ${header}</h1>
 <hr>
 <pre>
 <a href="../">../</a>
 % for name in dirnames:
-<a href="${name}">${name}/</a>${' ' * (50 - len(name))}${time} ${' ' * (34 - len(time))} -
+<a href="${name}/">${name}/</a>${' ' * (50 - len(name))}${time} ${' ' * (34 - len(time))} -
 % endfor
 % for name in filenames:
 <a href="${name}">${name}</a>${' ' * (50 - len(name))}${time} ${' ' * (34 - len(time))} -
@@ -49,10 +48,10 @@ def fun(dir,rootdir):
 #    header = os.path.basename(dir)
     f = open(dir+'/index.html','w')
     # time=time.ctime(os.path.getctime(dir)))
-    #print time.strftime('%m/%d/%Y', time.gmtime(os.path.getmtime(dir)))
-
-    #print time.strftime("%a, %d %b %Y %H:%M:%S +0000", os.path.getmtime(dir) )
-    print(Template(INDEX_TEMPLATE).render(dirnames=dirnames,filenames=filenames, header=dir,ROOTDIR=rootdir,filesize=os.path.getsize(dir), time=time.ctime(os.path.getctime(dir))),file=f)
+    dirtime=time.strftime('%d-%b-%Y %H:%M', time.gmtime(os.path.getmtime(dir)))
+    #print(time.ctime(os.path.getctime('/Users/teopost')))
+    #print( time.strftime("%a, %d %b %Y %H:%M:%S +0000", os.path.getmtime(dir)) )
+    print(Template(INDEX_TEMPLATE).render(dirnames=dirnames,filenames=filenames, header=dir,ROOTDIR=rootdir,time=dirtime),file=f)
     f.close()
     for subdir in dirnames:
         try:
