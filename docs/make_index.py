@@ -23,7 +23,7 @@ INDEX_TEMPLATE = r"""
 <a href="${name}">${name}/</a>${' ' * (50 - len(name))}${time} ${' ' * (34 - len(time))} -
 % endfor
 % for name in filenames:
-<a href="${name}">${name}</a>${' ' * (50 - len(name))}${time} ${' ' * (34 - len(time))} ${filesize}
+<a href="${name}">${name}</a>${' ' * (50 - len(name))}${time} ${' ' * (34 - len(time))} -
 % endfor
 </pre>
 <hr>
