@@ -35,7 +35,7 @@ EXCLUDED = ['index.html', 'make_index.py','copia_repo.sh','.DS_Store']
 import os
 import argparse
 
-# May need to do "pip install mako"
+# Installare mako con "pip install mako"
 from mako.template import Template
 
 def fun(dir,rootdir):
