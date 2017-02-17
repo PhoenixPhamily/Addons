@@ -1,4 +1,4 @@
-# Aggiungere un plugin al repository teopost
+# Aggiungere un plugin al repository teopost (spiegazione frettolosa e poco curata)
 
 1. Mettere il plugin decompresso nella root del repository
 2. Andare sotto tools
@@ -20,7 +20,23 @@ Ovviamente github non mi consente di fare il directory browsing ma ho usato uno 
 Siccome la visualizzazione di cartella su una pagina web altro non è che la visualizzazione di pagine html con gli opportuni link ai file, ho usato uno script che compone file html che simulano il directory browsing.
 Quello che potete vedere da questo link http://www.stefanoteodorani.it/kodi-repo-teopost/, in realtà è il contenuto di questo repository https://github.com/teopost/kodi-repo-teopost/tree/master/docs.
 
+Per creare questa simulazione basta eseguire:
 
+    python make_index.py .
+    
+Il risultato è una la struttura di cartelle e file che simula il directory browsing.
+
+# Aggiungere repository estemporanei alla sorgente
+
+Qualunque plugin (quindi file.zip) messo nella cartella docs, dopo aver eseguito make_index.py viene mostrato nel directory browsing.
+
+# Cosa fa copia_repo.sh
+
+Semplicemente, se si rigenera un nuovo repository, lo copia nella cartella del web server
+
+# Come fa la catella docs a essere vista come cartella web ?
+
+Questo è merito di github. A partire da metà 2016 nelle impostazioni del repository è possibile impostare una cartella come cartella pubblica (anche su repo privati)
 
 # Limitazioni
 
