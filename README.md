@@ -1,14 +1,21 @@
-# Aggiungere un plugin al repository teopost (spiegazione frettolosa e poco curata)
+# Introduzione
+Questo repository contiene una serie di strumenti per creare in maniera semplice e veloce un proprio  repository kodi.
 
-1. Mettere il plugin decompresso nella root del repository
-2. Andare sotto tools
-3. Incrementare la versione in version.txt (questo file viene verificato dal plugin per sapere se c'è un aggiornamento)
+# Aggiungere un nuovo plugin al repository
+
+Dopo aver fatto il clone del repo, effettuare le seguenti operazioni:
+
+1. Mettere una copia decompressa del plugin che si vuole aggiungere, nella root del repository
+2. Andare nella cartella _tools
+3. Incrementare la versione in version.txt (questo file viene verificato dai plugin già installati su kodi per sapere se c'è un aggiornamento)
 4. Incrementare la versione in config.ini (questa versione viene scritta dentro il plugin)
-5. Eseguire il ```python generate_repo.py```. 
+5. Eseguire il ```python generate_repo.py``` per generare lo zip del repository.
 
-# Cosa fa generate_repo.py ?
+# Funzionamento di generate_repo.py
 
-1. Comprime il plugin decompresso nella root e lo mette nella cartella repo
+Il file generate_repo.py effettua le seguenti operazioni:
+
+1. Comprime il plugin decompresso in precedenza nella root e lo mette nella cartella _repo
 2. Crea il file xml del plugin (si basa sul file template.xml)
 3. Crea il file compresso del plugin repository repository.teopost-X.Y.Z.zip
 4. Effettua un backup del vecchio repo
