@@ -36,7 +36,7 @@ Il risultato è una la struttura di cartelle e file html che simulano web browsi
 
 # Come fa la catella docs a essere vista come cartella web ?
 
-Questo è merito di github. A partire da metà 2016 infatti, nelle impostazioni del repository è possibile impostare una cartella del repo come cartella pubblica (anche su repo privati)
+Questo è merito di github. A partire da metà 2016 infatti, nelle impostazioni del repository è possibile impostare una cartella del repo (che deve chiamarsi docs) come sito web pubblico (anche su repo privati)
 
 # Aggiungere plugin esterni (fuori repo)
 
