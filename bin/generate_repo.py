@@ -32,18 +32,19 @@ class Generator:
         self.config = SafeConfigParser()
         self.config.read('config.ini')
 
-        self.tools_path=os.path.abspath(os.path.join(os.path.dirname(os.path.realpath(__file__))))
-        self.root_path=os.path.abspath(os.path.join(self.tools_path, os.pardir))
+        self.tools_path_abs=os.path.abspath(os.path.join(os.path.dirname(os.path.realpath(__file__))))
+        self.root_path=os.path.abspath(os.path.join(self.tools_path_abs, os.pardir))
 
-        self.output_path=self.config.get('locations', 'output_path')
-        self.input_path=self.config.get('locations', 'input_path')
+        self.output_path_rel=self.config.get('locations', 'output_path')
+        self.input_path_rel=self.config.get('locations', 'input_path')
 
-        self.input_path=self.root_path +  "/" + self.input_path
-        self.output_path=self.root_path +  "/" + self.output_path
+        self.input_path_abs=self.root_path +  "/" + self.input_path_rel
+        self.output_path_abs=self.root_path +  "/" + self.output_path_rel
 
-        os.chdir(self.input_path)
+
+        os.chdir(self.input_path_abs)
         # travel path one up
-        # os.chdir(os.path.abspath(os.path.join(self.tools_path, os.pardir)))
+        # os.chdir(os.path.abspath(os.path.join(self.tools_path_abs, os.pardir)))
 
         # generate files
         self._pre_run()
@@ -51,14 +52,15 @@ class Generator:
         self._generate_addons_file()
         self._generate_md5_file()
         self._generate_zip_files()
+        self._clean_temp_files()
         # notify user
         print "Finished updating addons xml, md5 files and zipping addons"
 
     def _pre_run ( self ):
 
         # create output  path if it does not exists
-        if not os.path.exists(self.output_path):
-            os.makedirs(self.output_path)
+        if not os.path.exists(self.output_path_abs):
+            os.makedirs(self.output_path_abs)
 
     def _generate_repo_files ( self ):
 
@@ -74,7 +76,7 @@ class Generator:
 
         print "Create repository addon"
 
-        with open (self.tools_path + os.path.sep + "template.xml", "r") as template:
+        with open (self.tools_path_abs + os.path.sep + "template.xml", "r") as template:
             template_xml=template.read()
 
         repo_xml = template_xml.format(
@@ -85,7 +87,7 @@ class Generator:
             summary=summary,
             description=description,
             url=url,
-            output_path=self.output_path)
+            output_path=self.output_path_rel)
 
         # save file
         if not os.path.exists(addonid):
@@ -104,7 +106,7 @@ class Generator:
             if not os.path.isfile( _path ): continue
             try:
                 # skip any file or .git folder
-                if ( not os.path.isdir( addon ) or addon == ".git" or addon == self.output_path or addon == self.tools_path): continue
+                if ( not os.path.isdir( addon ) or addon == ".git" or addon == self.output_path_abs or addon == self.tools_path_abs): continue
                 # create path
                 _path = os.path.join( addon, "addon.xml" )
                 # split lines for stripping
@@ -127,12 +129,12 @@ class Generator:
 
             zip.close()
 
-            if not os.path.exists(self.output_path + addonid):
-                os.makedirs(self.output_path + addonid)
+            if not os.path.exists(self.output_path_abs + addonid):
+                os.makedirs(self.output_path_abs + addonid)
 
-            if os.path.isfile(self.output_path + addonid + os.path.sep + filename):
-                os.rename(self.output_path + addonid + os.path.sep + filename, self.output_path + addonid + os.path.sep + filename + "." + datetime.datetime.now().strftime("%Y%m%d%H%M%S") )
-            shutil.move(filename, self.output_path + addonid + os.path.sep + filename)
+            if os.path.isfile(self.output_path_abs + addonid + os.path.sep + filename):
+                os.rename(self.output_path_abs + addonid + os.path.sep + filename, self.output_path_abs + addonid + os.path.sep + filename + "." + datetime.datetime.now().strftime("%Y%m%d%H%M%S") )
+            shutil.move(filename, self.output_path_abs + addonid + os.path.sep + filename)
         except Exception, e:
             print e
 
@@ -166,14 +168,14 @@ class Generator:
         # clean and add closing tag
         addons_xml = addons_xml.strip() + u"\n</addons>\n"
         # save file
-        self._save_file( addons_xml.encode( "utf-8" ), file=self.output_path + "addons.xml" )
+        self._save_file( addons_xml.encode( "utf-8" ), file=self.output_path_abs + "addons.xml" )
 
     def _generate_md5_file( self ):
         try:
             # create a new md5 hash
-            m = md5.new( open(self.output_path +  "addons.xml" ).read() ).hexdigest()
+            m = md5.new( open(self.output_path_abs +  "addons.xml" ).read() ).hexdigest()
             # save file
-            self._save_file( m, file=self.output_path + "addons.xml.md5" )
+            self._save_file( m, file=self.output_path_abs + "addons.xml.md5" )
         except Exception, e:
             # oops
             print "An error occurred creating addons.xml.md5 file!\n%s" % ( e, )
@@ -186,6 +188,13 @@ class Generator:
             # oops
             print "An error occurred saving %s file!\n%s" % ( file, e, )
 
+    def _clean_temp_files( self ):
+        addonid=self.config.get('addon', 'id')
+        try:
+            shutil.rmtree(self.input_path_abs + os.sep + addonid)
+        except Exception, e:
+            # oops
+            print "An error occurred deleting addonid file!\n%s" % ( e, )
 
 if ( __name__ == "__main__" ):
     # start
