@@ -1,1 +1,1 @@
-cp ../_repo/repository.teopost/repository.teopost*zip ./jarvis/
+cp ../addon_build/repository.teopost/repository.teopost*zip ./krypton/
