@@ -63,3 +63,12 @@ Stream On Demand
 ---
 Per installare questo repository cliccare il link [download](https://github.com/streamondemand/plugin.video.streamondemand/archive/master.zip)
 * Link repo github:  https://github.com/streamondemand/plugin.video.streamondemand 
+
+Sport Devil
+---
+* https://github.com/kodil/kodil/tree/master/repo/plugin.video.SportsDevil
+
+Others
+---
+* http://fusion.tvaddons.ag/
+* 
