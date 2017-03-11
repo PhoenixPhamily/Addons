@@ -68,6 +68,10 @@ Sport Devil
 ---
 * https://github.com/kodil/kodil/tree/master/repo/plugin.video.SportsDevil
 
+F4mproxy & F4mtester
+---
+* https://github.com/Shani-08/ShaniXBMCWork2/tree/master/zips
+
 Others
 ---
 * http://fusion.tvaddons.ag/
