@@ -61,5 +61,5 @@ https://github.com/markop159/Markop159-repository/tree/master/Releases/plugin.vi
 
 Stream On Demand
 ---
-Per installare questo repository cliccare (download link)[https://github.com/streamondemand/plugin.video.streamondemand/archive/master.zip] 
+Per installare questo repository cliccare il link [download](https://github.com/streamondemand/plugin.video.streamondemand/archive/master.zip)
 * Link repo github:  https://github.com/streamondemand/plugin.video.streamondemand 
