@@ -56,3 +56,10 @@ Bootstrap GIT repo for setting up a Kodi repository  For more information visit:
 
 Popcorn-time
 https://github.com/markop159/Markop159-repository/tree/master/Releases/plugin.video.kodipopcorntime
+
+# Repository interessanti
+
+Stream On Demand
+---
+Per installare questo repository cliccare (download link)[https://github.com/streamondemand/plugin.video.streamondemand/archive/master.zip] 
+* Link repo github:  https://github.com/streamondemand/plugin.video.streamondemand 
