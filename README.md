@@ -72,6 +72,10 @@ F4mproxy & F4mtester
 ---
 * https://github.com/Shani-08/ShaniXBMCWork2/tree/master/zips
 
+Thoradia
+---
+* https://github.com/thoradia/thoradia
+
 Others
 ---
 * http://fusion.tvaddons.ag/
