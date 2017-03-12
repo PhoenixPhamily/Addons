@@ -76,6 +76,10 @@ Thoradia
 ---
 * https://github.com/thoradia/thoradia
 
+Ares Wizard
+-----------
+* http://repo.ares-project.com/magic/repository.aresproject/
+
 Others
 ---
 * http://fusion.tvaddons.ag/
