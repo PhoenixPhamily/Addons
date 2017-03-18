@@ -84,3 +84,4 @@ Others
 ---
 * http://fusion.tvaddons.ag/
 * https://github.com/kodil/kodil/tree/master/repositories
+* https://github.com/linuxserver/libreelec-addon-repo
