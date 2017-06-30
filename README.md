@@ -26,7 +26,7 @@ Per pubblicare il repository sul web e usarlo da kodi, ho usato github.
 
 Github non consente di creare un web folder su cui mettere i propri file, ma permette di pubblicare pagine html. Quindi, usando un piccolo trucco, si può creare una cartella web, da usare come sorgente di kodi, creando un sito le cui pagine html simulano il web browsing di un comune web server (tipo apache).
 
-Per farla breve, quello che potete vedere da questo link http://www.stefanoteodorani.it/kodi-repo-teopost/, in realtà è il contenuto di questo repository https://github.com/teopost/kodi-repo-teopost/tree/master/docs.
+Per farla breve, quello che potete vedere da questo link http://teopost.github.io/kodi-repo/, in realtà è il contenuto di questo repository https://github.com/teopost/kodi-repo-teopost/tree/master/docs.
 
 Per creare questa simulazione basta questo script:
 
